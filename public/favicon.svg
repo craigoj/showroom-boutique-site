@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 132 76" role="img" aria-label="The Showroom Boutique interlocking double O monogram">
+  <!-- The interlocking double-O from the "oo" in Showroom, drawn as her brand mark -->
+  <g fill="none" stroke="#C8A24A" stroke-width="4.4">
+    <circle cx="46" cy="38" r="30"/>
+    <circle cx="86" cy="38" r="30"/>
+    <!-- weave: redraw the top arc of the left ring over the right so they interlock -->
+    <path d="M46 8 A30 30 0 0 1 74.7 29.2" stroke-width="4.6"/>
+  </g>
+</svg>

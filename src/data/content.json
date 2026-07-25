@@ -1,0 +1,109 @@
+{
+  "business": {
+    "name": "The Showroom Boutique",
+    "tagline": "20 Years of Fashion, Family and Fabulous You",
+    "years": "20",
+    "street": "3801 W Third St",
+    "cityStateZip": "Dayton, OH 45417",
+    "neighborhood": "West Third Street",
+    "city": "Dayton",
+    "phone": "(937) 520-2219",
+    "phoneHref": "tel:+19375202219",
+    "phoneConfirmed": false,
+    "instagramUrl": "https://www.instagram.com/showroomboutique/",
+    "instagramHandle": "@showroomboutique",
+    "instagramFollowers": "3,500+ following",
+    "hoursNote": "Call ahead for today's hours",
+    "hoursConfirmed": false
+  },
+
+  "hero": {
+    "eyebrow": "West Third Street · Dayton",
+    "headline": "Your look. Your moment.",
+    "headlineAccent": "Your Showroom.",
+    "body": "The gown for prom, the fit for the party, and the piece you did not know you were looking for. Come find it in the pink store on West Third.",
+    "ctaPrimary": "Visit the Showroom",
+    "image": "/assets/img/hero-champagne-aisle.jpg",
+    "imageAlt": "A champagne satin corset gown at the front of The Showroom Boutique, with purple, blue and red gowns down the aisle behind it"
+  },
+
+  "strip": [
+    "Twenty years on West Third",
+    "Prom, pageant and special occasion",
+    "Styled with you, in person"
+  ],
+
+  "collection": {
+    "kicker": "The Collection",
+    "heading": "Pieces on the floor now",
+    "pieces": [
+      { "name": "The White Sequin", "tag": "Party", "image": "/assets/img/cutout-sequin.png", "alt": "A white sequin party dress", "cutout": true },
+      { "name": "The Periwinkle Corset", "tag": "Prom and pageant", "image": "/assets/img/cutout-gown.png", "alt": "A periwinkle beaded corset gown", "cutout": true },
+      { "name": "Pearl Drop Choker", "tag": "Accessories", "image": "/assets/img/cutout-choker.png", "alt": "Pearl drop choker", "cutout": true },
+      { "name": "The Hot Pink Suit", "tag": "Clubwear", "image": "/assets/img/cutout-pantsuit.png", "alt": "A hot pink satin pantsuit", "cutout": true }
+    ]
+  },
+
+  "promBand": {
+    "kicker": "Prom on West Third",
+    "heading": "The gown for the night you will remember.",
+    "body": "Spring is the season here, and the best dresses go early. Bring your people, take your time, and let Linda help you find the one. No two girls should walk in wearing the same dress.",
+    "cta": "Plan your visit",
+    "image": "/assets/img/hero-black-mermaid-aisle.jpg",
+    "alt": "A black beaded mermaid gown with a full tulle train on a mannequin, centered in the boutique aisle"
+  },
+
+  "departments": {
+    "kicker": "Come in for",
+    "heading": "What we carry",
+    "items": [
+      { "title": "Dresses & Gowns", "subtitle": "The Collection", "image": "/assets/img/hero-pink-blue-dresses.jpg", "alt": "A hot pink short party dress and a royal blue high-low dress on mannequins", "focus": "center 24%" },
+      { "title": "Prom & Pageant", "subtitle": "Spring season", "image": "/assets/img/gown-yellow-ballgown.jpg", "alt": "A bright yellow satin ball gown with a beaded bodice", "focus": "center 28%" },
+      { "title": "Clubwear", "subtitle": "Going out", "image": "/assets/img/interior-rompers-clubwear.jpg", "alt": "Rompers and jumpsuits with sequined gowns behind, inside the boutique", "focus": "center 50%" },
+      { "title": "Mommy & Me", "subtitle": "New this summer", "image": "/assets/img/gowns-cream-pink-family.jpg", "alt": "Cream and pink gowns with little girls' dresses", "focus": "center 38%" },
+      { "title": "Swim & Lingerie", "subtitle": "A wall of color", "image": "/assets/img/interior-swimwear-cover.jpg", "alt": "Colorful swimwear and mesh cover-ups on mannequins inside the boutique", "focus": "center 50%" },
+      { "title": "Accessories", "subtitle": "Finishing pieces", "image": "/assets/img/accessory-pink-clutch.jpg", "alt": "A blush pink rosette clutch with a pearl handle", "focus": "center 32%" }
+    ]
+  },
+
+  "runway": {
+    "kicker": "The Collection, in motion",
+    "heading": "See the looks move.",
+    "body": "A rolling look at what is on the floor. Watch the full reels on Instagram.",
+    "cards": [
+      { "type": "video", "video": "/assets/video/reel-dresses.mp4", "poster": "/assets/video/reel-dresses.jpg", "caption": "Party dresses" },
+      { "type": "photo", "image": "/assets/img/gown-teal-jeweled.jpg", "alt": "A teal jeweled gown", "caption": "Special occasion" },
+      { "type": "video", "video": "/assets/video/reel-sparkle.mp4", "poster": "/assets/video/reel-sparkle.jpg", "caption": "The detail" },
+      { "type": "photo", "image": "/assets/img/gown-yellow-ballgown.jpg", "alt": "A yellow beaded ball gown", "caption": "Prom" },
+      { "type": "photo", "image": "/assets/img/gown-white-sequin.jpg", "alt": "A white sequin party dress", "caption": "Party" },
+      { "type": "video", "video": "/assets/video/reel-corsets.mp4", "poster": "/assets/video/reel-corsets.jpg", "caption": "Corsets are back" },
+      { "type": "photo", "image": "/assets/img/gown-champagne-caped.jpg", "alt": "A champagne caped gown", "caption": "Evening" },
+      { "type": "photo", "image": "/assets/img/gown-periwinkle-corset.jpg", "alt": "A periwinkle beaded corset gown", "caption": "Pageant" },
+      { "type": "photo", "image": "/assets/img/gowns-gold-champagne.jpg", "alt": "Gold and champagne sequin gowns", "caption": "New in" }
+    ]
+  },
+
+  "pullQuote": {
+    "kicker": "The Showroom Promise",
+    "quote": "Style. Confidence. Celebration."
+  },
+
+  "instagram": {
+    "kicker": "Follow along",
+    "blurb": "New arrivals, prom looks and everyday fits, posted all the time. Join 3,500+ following on Instagram.",
+    "ctaLabel": "Follow on Instagram",
+    "grid": [
+      { "image": "/assets/img/gowns-gold-champagne.jpg", "alt": "Gold and champagne sequin gowns on mannequins" },
+      { "image": "/assets/img/gown-white-sequin.jpg", "alt": "A white sequined party dress on a mannequin" },
+      { "image": "/assets/img/interior-swimwear-wall.jpg", "alt": "The colorful swimwear and lingerie wall inside the boutique" },
+      { "image": "/assets/img/detail-black-rosette.jpg", "alt": "A close detail of a black organza gown with a large rosette" },
+      { "image": "/assets/img/gown-cream-lace-detail.jpg", "alt": "A cream lace and tulle gown bodice with rhinestone straps" },
+      { "image": "/assets/img/interior-pearl-clubwear.jpg", "alt": "Pearl-draped tops and pearl-embellished denim on mannequins inside the boutique" }
+    ]
+  },
+
+  "visit": {
+    "kicker": "Visit the Showroom",
+    "heading": "Come see it in person."
+  }
+}

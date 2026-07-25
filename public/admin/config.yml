@@ -1,0 +1,225 @@
+# Sveltia CMS — Linda's editor for her own website.
+#
+# Every field below maps to src/data/content.json, the SAME file the website reads.
+# Save here, the site changes. That's the whole point.
+#
+#  • Production: `backend: github` -> edits commit to the repo -> the site rebuilds
+#    (~1 min). Requires a GitHub OAuth app plus OAUTH_CLIENT_ID / OAUTH_CLIENT_SECRET
+#    env vars in Netlify -- see netlify/functions/auth.js for the exact setup steps.
+#    NOT YET CREATED as of 2026-07-25: the repo exists, the OAuth app does not.
+#    Until it does, "Sign In with GitHub" will fail. That is expected.
+#  • Local editing (works right now, no GitHub account needed): `local_backend: true`
+#    plus `npx @sveltia/cms-proxy-server`, then open http://localhost:5173/admin/
+#    while `npm run dev` is running. Edits write to the local working tree.
+#
+# A NOTE ON PHOTOS, before anyone uploads one: no third-party brand names or
+# branded merchandise (designer handbag logos, etc.) in any photo, filename, or
+# caption. See businesses/showroom-boutique/02-audit/COMPLIANCE-BRANDED-GOODS-2026-07-22.md
+# in the MVUL repo. Also: no identifiable customer face without that person's
+# written permission -- ask before you post someone else's picture.
+#
+# `base_url` / `site_url` are NOT hand-edited: they carry a __SITE_URL__ token that
+# vite.config.js substitutes at build time from the single SITE_URL variable.
+
+backend:
+  name: github
+  repo: craigoj/showroom-boutique-site
+  branch: main
+  base_url: __SITE_URL__ # generated at build time from SITE_URL, do not hand-edit
+  auth_endpoint: .netlify/functions/auth
+
+local_backend: true
+
+site_url: __SITE_URL__ # generated at build time from SITE_URL, do not hand-edit
+
+media_folder: 'public/assets/img'
+public_folder: '/assets/img'
+
+collections:
+  - name: content
+    label: 'My Website'
+    description: >-
+      Everything on your site. Change the words here and the website updates
+      itself a minute later. Photos live under "Photos" fields throughout --
+      click one to swap it for your own.
+    files:
+      - name: site
+        label: 'Site Content'
+        file: 'src/data/content.json'
+        editor: { preview: false }
+        fields:
+          - name: business
+            label: 'Business Info'
+            widget: object
+            fields:
+              - { name: name, label: 'Business name', widget: string }
+              - { name: tagline, label: 'Tagline (in the black bar at the very top)', widget: string }
+              - { name: years, label: 'Years in business', widget: string, hint: 'Just the number, e.g. 20' }
+              - { name: street, label: 'Street address', widget: string }
+              - { name: cityStateZip, label: 'City, state, zip', widget: string }
+              - { name: neighborhood, label: 'Neighborhood line (used in the hero)', widget: string }
+              - { name: city, label: 'City', widget: string }
+              - { name: phone, label: 'Phone (what people see)', widget: string, hint: 'Format: (937) 520-2219' }
+              - {
+                  name: phoneHref,
+                  label: 'Phone (the tap-to-call link)',
+                  widget: string,
+                  hint: 'Format: tel:+19375202219 -- change this too if the number changes, or the Call button will dial the old number',
+                }
+              - {
+                  name: phoneConfirmed,
+                  label: 'Phone number confirmed with Linda?',
+                  widget: boolean,
+                  default: false,
+                  hint: 'Internal flag. There were three numbers in circulation at build time -- flip to true once she has confirmed the one above is correct.',
+                }
+              - { name: instagramUrl, label: 'Instagram URL', widget: string }
+              - { name: instagramHandle, label: 'Instagram handle (as shown, with @)', widget: string }
+              - { name: instagramFollowers, label: 'Follower line (e.g. "3,500+ following")', widget: string }
+              - {
+                  name: hoursNote,
+                  label: 'Hours note (shown near the address)',
+                  widget: string,
+                  hint: 'Currently "Call ahead for today\'s hours" until real hours are confirmed. Replace with actual hours once known.',
+                }
+              - { name: hoursConfirmed, label: 'Hours confirmed?', widget: boolean, default: false }
+
+          - name: hero
+            label: 'Top of the Page (Hero)'
+            widget: object
+            fields:
+              - { name: eyebrow, label: 'Small line above the headline', widget: string }
+              - { name: headline, label: 'Headline, line 1', widget: string }
+              - { name: headlineAccent, label: 'Headline, line 2 (shown in pink italic)', widget: string }
+              - { name: body, label: 'Paragraph under the headline', widget: text }
+              - { name: ctaPrimary, label: 'Button text', widget: string }
+              - { name: image, label: 'Hero photo', widget: image }
+              - { name: imageAlt, label: 'Describe the hero photo', widget: string, hint: 'Helps Google and screen readers.' }
+
+          - name: strip
+            label: 'Value Strip (the 3 lines under the hero)'
+            widget: list
+            label_singular: 'line'
+            field: { name: line, label: 'Line', widget: string }
+            min: 1
+            max: 4
+
+          - name: collection
+            label: 'The Collection Section'
+            widget: object
+            fields:
+              - { name: kicker, label: 'Small label above the heading', widget: string }
+              - { name: heading, label: 'Section heading', widget: string }
+              - name: pieces
+                label: 'Featured pieces'
+                widget: list
+                label_singular: 'piece'
+                summary: '{{fields.name}}'
+                min: 1
+                max: 6
+                fields:
+                  - { name: name, label: 'Piece name', widget: string }
+                  - { name: tag, label: 'Category tag (e.g. Prom, Clubwear)', widget: string }
+                  - { name: image, label: 'Photo', widget: image }
+                  - { name: alt, label: 'Describe the photo', widget: string }
+                  - {
+                      name: cutout,
+                      label: 'Cut-out style photo (no background)?',
+                      widget: boolean,
+                      default: false,
+                      hint: 'Leave off for a normal photo. Only turn on if the image has the background already removed.',
+                    }
+
+          - name: promBand
+            label: 'Prom Section'
+            widget: object
+            fields:
+              - { name: kicker, label: 'Small label above the heading', widget: string }
+              - { name: heading, label: 'Heading', widget: string }
+              - { name: body, label: 'Paragraph', widget: text }
+              - { name: cta, label: 'Button text', widget: string }
+              - { name: image, label: 'Photo', widget: image }
+              - { name: alt, label: 'Describe the photo', widget: string }
+
+          - name: departments
+            label: 'What We Carry'
+            widget: object
+            fields:
+              - { name: kicker, label: 'Small label above the heading', widget: string }
+              - { name: heading, label: 'Section heading', widget: string }
+              - name: items
+                label: 'Departments'
+                widget: list
+                label_singular: 'department'
+                summary: '{{fields.title}}'
+                min: 1
+                max: 8
+                fields:
+                  - { name: title, label: 'Department name', widget: string }
+                  - { name: subtitle, label: 'Short subtitle', widget: string }
+                  - { name: image, label: 'Photo', widget: image }
+                  - { name: alt, label: 'Describe the photo', widget: string }
+                  - {
+                      name: focus,
+                      label: 'Photo focus point (advanced)',
+                      widget: string,
+                      required: false,
+                      hint: 'Leave as-is unless a photo looks cropped oddly. Format: "center 30%"',
+                    }
+
+          - name: runway
+            label: 'Looks in Motion (scrolling strip)'
+            widget: object
+            fields:
+              - { name: kicker, label: 'Small label above the heading', widget: string }
+              - { name: heading, label: 'Heading', widget: string }
+              - { name: body, label: 'Short intro line', widget: text }
+              - name: cards
+                label: 'Cards'
+                widget: list
+                label_singular: 'card'
+                summary: '{{fields.caption}}'
+                fields:
+                  - {
+                      name: type,
+                      label: 'Card type',
+                      widget: select,
+                      options: [{ label: 'Photo', value: 'photo' }, { label: 'Video', value: 'video' }],
+                    }
+                  - { name: caption, label: 'Caption', widget: string }
+                  - { name: image, label: 'Photo (for photo cards)', widget: image, required: false }
+                  - { name: alt, label: 'Describe the photo (for photo cards)', widget: string, required: false }
+                  - { name: video, label: 'Video file (for video cards)', widget: file, required: false }
+                  - { name: poster, label: 'Video cover image (for video cards)', widget: image, required: false }
+
+          - name: pullQuote
+            label: 'Pull Quote (the big italic line)'
+            widget: object
+            fields:
+              - { name: kicker, label: 'Small label above the quote', widget: string }
+              - { name: quote, label: 'The quote', widget: string }
+
+          - name: instagram
+            label: 'Instagram Section'
+            widget: object
+            fields:
+              - { name: kicker, label: 'Small label above the heading', widget: string }
+              - { name: blurb, label: 'Short line under your handle', widget: text }
+              - { name: ctaLabel, label: 'Button text', widget: string }
+              - name: grid
+                label: 'Photo grid'
+                widget: list
+                label_singular: 'photo'
+                summary: '{{fields.alt}}'
+                min: 4
+                max: 12
+                fields:
+                  - { name: image, label: 'Photo', widget: image }
+                  - { name: alt, label: 'Describe the photo', widget: string }
+
+          - name: visit
+            label: 'Visit Section'
+            widget: object
+            fields:
+              - { name: kicker, label: 'Small label above the heading', widget: string }
+              - { name: heading, label: 'Heading', widget: string }

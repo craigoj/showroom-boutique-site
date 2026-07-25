@@ -1,0 +1,26 @@
+[build]
+  command = "npm run build"
+  publish = "dist"
+  functions = "netlify/functions"
+
+# The CMS is a real static page, not a React route. Serve it directly so the
+# SPA catch-all below never swallows it.
+[[redirects]]
+  from = "/admin"
+  to = "/admin/index.html"
+  status = 200
+
+[[redirects]]
+  from = "/admin/*"
+  to = "/admin/index.html"
+  status = 200
+
+[[redirects]]
+  from = "/*"
+  to = "/index.html"
+  status = 200
+
+# No X-Robots-Tag here on purpose. It used to be hard-coded, which meant launching
+# required remembering to edit this file. It is generated into dist/_headers at
+# build time from the single SITE_URL variable (see vite.config.js), so the preview
+# stays noindex and the real domain is indexable without anyone editing anything.
