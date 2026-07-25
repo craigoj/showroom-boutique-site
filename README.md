@@ -13,11 +13,15 @@ locally:
 ```bash
 npm install
 npm run dev                       # site at http://localhost:5173
-npx @sveltia/cms-proxy-server      # in a second terminal
 ```
 
-Then open `http://localhost:5173/admin/` and sign in with "Work with Local
-Repository." Changes you make there write straight to `content.json` on disk.
+Then, in a Chromium-based browser (Chrome, Edge, Brave — this needs the File
+System Access API, so not Safari or Firefox), open
+`http://localhost:5173/admin/index.html` and click "Work with Local
+Repository." Pick this project's folder when the browser asks for permission.
+No proxy server, no GitHub account needed for this path — changes write
+straight to `content.json` on disk, and you commit them yourself with git
+when you're happy.
 
 Once the GitHub OAuth app exists (see `netlify/functions/auth.js`) and this
 repo is transferred to your own GitHub account, `/admin` on the live site

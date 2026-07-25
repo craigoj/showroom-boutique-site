@@ -8,9 +8,12 @@
 #    env vars in Netlify -- see netlify/functions/auth.js for the exact setup steps.
 #    NOT YET CREATED as of 2026-07-25: the repo exists, the OAuth app does not.
 #    Until it does, "Sign In with GitHub" will fail. That is expected.
-#  • Local editing (works right now, no GitHub account needed): `local_backend: true`
-#    plus `npx @sveltia/cms-proxy-server`, then open http://localhost:5173/admin/
-#    while `npm run dev` is running. Edits write to the local working tree.
+#  • Local editing (works right now, no GitHub account needed, no proxy server --
+#    Sveltia uses the browser's File System Access API directly, Chromium browsers
+#    only): run `npm run dev`, open http://localhost:5173/admin/index.html, click
+#    "Work with Local Repository," and pick this project's folder when the browser
+#    asks. Edits write straight to the local working tree; commit them yourself
+#    with git when you're happy with them.
 #
 # A NOTE ON PHOTOS, before anyone uploads one: no third-party brand names or
 # branded merchandise (designer handbag logos, etc.) in any photo, filename, or
@@ -80,7 +83,7 @@ collections:
                   name: hoursNote,
                   label: 'Hours note (shown near the address)',
                   widget: string,
-                  hint: 'Currently "Call ahead for today\'s hours" until real hours are confirmed. Replace with actual hours once known.',
+                  hint: "Currently \"Call ahead for today's hours\" until real hours are confirmed. Replace with actual hours once known.",
                 }
               - { name: hoursConfirmed, label: 'Hours confirmed?', widget: boolean, default: false }
 
