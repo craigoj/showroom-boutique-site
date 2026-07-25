@@ -9,7 +9,7 @@
     "city": "Dayton",
     "phone": "(937) 520-2219",
     "phoneHref": "tel:+19375202219",
-    "phoneConfirmed": false,
+    "phoneConfirmed": true,
     "instagramUrl": "https://www.instagram.com/showroomboutique/",
     "instagramHandle": "@showroomboutique",
     "instagramFollowers": "3,500+ following",
